@@ -128,9 +128,7 @@ nodes:
             - "**/node_modules/**"
             - "**/dist/**"
             - "**/build/**"
-      - name: "Upgrade to SDK Project Format"
+      - name: "AI Scaffold & Polish"
         ai:
-          prompt: "Analyze the existing legacy .csproj files in this repository. Create new .NET 8 SDK-style .csproj files to replace them, keeping any necessary Nuget package references but removing the explicit file includes. Overwrite the old .csproj files."
-      - name: "Generate Program.cs"
-        ai:
-          prompt: "Analyze the repository, specifically looking for Global.asax or Global.asax.cs if it still exists. Scaffold a modern ASP.NET Core 8 Program.cs file at the root of the web project that configures controllers, routing, and any necessary services (like EF Core DbContext) based on the legacy configuration. Also remove Global.asax and Global.asax.cs since they are obsolete in .NET 8."
+          prompt: "1. Analyze the existing legacy .csproj files and completely rewrite them to use the .NET 8 SDK-style format. 2. Read Global.asax.cs and Global.asax, generate a modern ASP.NET Core Program.cs file at the root of the web project with the equivalent routing and service configurations, and then delete the obsolete Global.asax and Global.asax.cs files."
+          max_steps: 25
