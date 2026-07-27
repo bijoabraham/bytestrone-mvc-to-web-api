@@ -36,4 +36,23 @@ app.Run();
 `;
         fs.writeFileSync(programCsPath, programCsContent);
     }
+
+    // 4. Update Customer_List.csproj to .NET 8 SDK-style
+    const csprojPath = path.join(cwd, "Customer_List", "Customer_List.csproj");
+    if (fs.existsSync(csprojPath)) {
+        const csprojContent = `<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CustomersWebDemo</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
+  </ItemGroup>
+</Project>`;
+        fs.writeFileSync(csprojPath, csprojContent);
+    }
 }

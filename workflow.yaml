@@ -128,7 +128,6 @@ nodes:
             - "**/node_modules/**"
             - "**/dist/**"
             - "**/build/**"
-      - name: "AI Scaffold & Polish"
-        ai:
-          prompt: "1. Analyze the existing legacy .csproj files and completely rewrite them to use the .NET 8 SDK-style format. 2. Read Global.asax.cs and Global.asax, generate a modern ASP.NET Core Program.cs file at the root of the web project with the equivalent routing and service configurations, and then delete the obsolete Global.asax and Global.asax.cs files."
-          max_steps: 25
+      - name: "Deterministic File Operations (Program.cs & csproj)"
+        codemod:
+          source: "./scripts/file-ops.ts"
