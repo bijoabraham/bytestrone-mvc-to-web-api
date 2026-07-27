@@ -131,3 +131,6 @@ nodes:
       - name: "Upgrade to SDK Project Format"
         ai:
           prompt: "Analyze the existing legacy .csproj files in this repository. Create new .NET 8 SDK-style .csproj files to replace them, keeping any necessary Nuget package references but removing the explicit file includes. Overwrite the old .csproj files."
+      - name: "Generate Program.cs"
+        ai:
+          prompt: "Analyze the repository, specifically looking for Global.asax or Global.asax.cs if it still exists. Scaffold a modern ASP.NET Core 8 Program.cs file at the root of the web project that configures controllers, routing, and any necessary services (like EF Core DbContext) based on the legacy configuration. Also remove Global.asax and Global.asax.cs since they are obsolete in .NET 8."
