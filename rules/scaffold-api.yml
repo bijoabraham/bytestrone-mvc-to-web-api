@@ -1,8 +1,8 @@
 id: mvc-to-webapi-scaffold-api
-language: c-sharp
+language: csharp
 rule:
-  pattern: class $CLASS : Controller { $$$BODY }
+  pattern: "public class $CLASS : Controller { $$$BODY }"
 fix: |
   [ApiController]
   [Route("api/[controller]")]
-  class $CLASS : ControllerBase { $$$BODY }
+  public class $CLASS : ControllerBase { $$$BODY }

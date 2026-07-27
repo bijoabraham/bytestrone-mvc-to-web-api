@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/codemod/codemod/refs/heads/main/schemas/workflow.json
+
+version: "1"
+
+nodes:
+  - id: migrate-mvc-to-web-api
+    name: Migrate MVC to Web API
+    type: automatic
+    steps:
+      - name: "Scaffold API"
+        ast-grep:
+          config_file: rules/scaffold-api.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "Action Result"
+        ast-grep:
+          config_file: rules/action-result.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "Swap Verbs (Index)"
+        ast-grep:
+          config_file: rules/swap-verb-index.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "Swap Verbs (Filter)"
+        ast-grep:
+          config_file: rules/swap-verb-filter.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "Swap Verbs (Details)"
+        ast-grep:
+          config_file: rules/swap-verb-details.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "View Returns"
+        ast-grep:
+          config_file: rules/view-returns.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"

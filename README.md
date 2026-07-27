@@ -1,9 +1,39 @@
-# bytestrone-mvc-to-web-api
+# my-codemod
 
-This is a native Codemod bundle that leverages the `ast-grep` engine to automate the syntax transformation of ASP.NET MVC controllers into ASP.NET Core Web API controllers.
+Transform legacy code patterns
 
-## Included Rules
-1. `scaffold-api.yml`: Converts classes inheriting from `Controller` to `ControllerBase` and injects API attributes.
-2. `swap-verb.yml`: Injects HTTP verb attributes (like `[HttpGet]`) based on action names.
-3. `action-result.yml`: Standardizes return types to `IActionResult`.
-4. `view-returns.yml`: Converts legacy `return View();` to `return Ok();`.
+## Installation
+
+```bash
+# Install from registry
+codemod run my-codemod
+
+# Or run locally
+codemod run -w workflow.yaml
+```
+
+## Usage
+
+Document the exact migration this codemod performs before publishing. At minimum, cover:
+
+- The concrete syntax or API patterns it rewrites
+- The file types or paths it targets
+- Important preserve/no-op cases and exclusions
+
+## Development
+
+```bash
+# Test the transformation
+npm test
+
+# Validate the workflow
+codemod workflow validate -w workflow.yaml
+
+# Publish to registry
+codemod login
+codemod publish
+```
+
+## License
+
+MIT
