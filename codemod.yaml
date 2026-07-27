@@ -1,0 +1,12 @@
+schema_version: "1.0"
+name: "bytestrone-mvc-to-web-api"
+version: "1.0.0"
+description: "Transform ASP.NET MVC controllers to Web API controllers"
+author: "bijoabraham"
+engine: jscodeshift
+category: "migration"
+targets:
+  languages: ["c-sharp"]
+registry:
+  access: "public"
+  visibility: "public"

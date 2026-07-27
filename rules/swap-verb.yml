@@ -1,0 +1,10 @@
+id: mvc-to-webapi-swap-verb
+language: c-sharp
+rule:
+  any:
+    - pattern: public ActionResult Index($$$ARGS) { $$$BODY }
+    - pattern: public PartialViewResult Filter($$$ARGS) { $$$BODY }
+    - pattern: public ActionResult Details($$$ARGS) { $$$BODY }
+fix: |
+  [HttpGet]
+  public IActionResult $METHOD($$$ARGS) { $$$BODY }

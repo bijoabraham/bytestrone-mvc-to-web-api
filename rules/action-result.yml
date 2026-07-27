@@ -1,0 +1,5 @@
+id: mvc-to-webapi-action-result
+language: c-sharp
+rule:
+  pattern: public ActionResult $METHOD($$$ARGS) { $$$BODY }
+fix: public IActionResult $METHOD($$$ARGS) { $$$BODY }

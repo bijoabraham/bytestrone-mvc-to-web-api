@@ -1,0 +1,9 @@
+id: mvc-to-webapi-view-returns
+language: c-sharp
+rule:
+  any:
+    - pattern: return View();
+    - pattern: return PartialView();
+    - pattern: return View($DATA);
+    - pattern: return PartialView($DATA);
+fix: return Ok($DATA);
