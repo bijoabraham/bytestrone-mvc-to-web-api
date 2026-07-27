@@ -129,5 +129,4 @@ nodes:
             - "**/dist/**"
             - "**/build/**"
       - name: "Deterministic File Operations (Program.cs & csproj)"
-        codemod:
-          source: "./scripts/file-ops.ts"
+        run: "node scripts/file-ops.js"
