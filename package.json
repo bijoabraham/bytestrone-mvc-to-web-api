@@ -1,6 +1,6 @@
 {
   "name": "my-codemod",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "description": "Transform legacy code patterns",
   "packageManager": "npm@10.x",
   "type": "module",

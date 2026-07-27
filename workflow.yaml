@@ -73,3 +73,61 @@ nodes:
             - "**/node_modules/**"
             - "**/dist/**"
             - "**/build/**"
+      - name: "EF Namespaces"
+        ast-grep:
+          config_file: rules/ef-namespaces.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "EF Entity Type Configuration"
+        ast-grep:
+          config_file: rules/ef-entity-type.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "EF Builder Prefix"
+        ast-grep:
+          config_file: rules/ef-builder-prefix.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "EF Value Generated"
+        ast-grep:
+          config_file: rules/ef-value-generated.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "MVC Namespaces"
+        ast-grep:
+          config_file: rules/mvc-namespaces.yml
+          base_path: "."
+          language: "csharp"
+          include:
+            - "**/*.cs"
+          exclude:
+            - "**/node_modules/**"
+            - "**/dist/**"
+            - "**/build/**"
+      - name: "Upgrade to SDK Project Format"
+        ai:
+          prompt: "Analyze the existing legacy .csproj files in this repository. Create new .NET 8 SDK-style .csproj files to replace them, keeping any necessary Nuget package references but removing the explicit file includes. Overwrite the old .csproj files."
